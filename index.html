@@ -62,8 +62,8 @@
     const dateEl = document.getElementById('date');
 
     function applyColors() {
-      const isDark = false;
-      
+      const isDark = true;  // ← ここを true に変更！
+
       if (isDark) {
         timeEl.style.color = '#ffffff';
         dateEl.style.color = '#ffffff';
@@ -86,11 +86,7 @@
       dateEl.textContent = dateStr;
     }
 
-    // 色を適用
     applyColors();
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyColors);
-
-    // 時計を更新
     updateClock();
     setInterval(updateClock, 1000);
   </script>
