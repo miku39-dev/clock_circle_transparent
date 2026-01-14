@@ -3,26 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark">
   <title>Glass Clock</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root { color-scheme: light dark; }
-
     html, body {
       min-height: 100vh;
-      background: transparent !important;
-      background-color: transparent !important;
+      background: transparent;
     }
-
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     }
-
     .clock-container {
       width: 220px;
       height: 220px;
@@ -30,27 +23,37 @@
       background: transparent;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.8));
+      border: 1px solid rgba(0, 0, 0, 0.2);
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), inset 0 0 30px rgba(255, 255, 255, 0.1);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
-
     .time {
       font-size: 3.2rem;
       font-weight: 300;
       letter-spacing: 2px;
-      color: light-dark(#333333, #ffffff);
+      color: #333333;
     }
-
     .date {
       font-size: 0.8rem;
       font-weight: 500;
       margin-top: 10px;
       letter-spacing: 1px;
-      color: light-dark(#555555, #ffffff);
+      color: #555555;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .clock-container {
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+      .time {
+        color: #ffffff;
+      }
+      .date {
+        color: #ffffff;
+      }
     }
   </style>
 </head>
