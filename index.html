@@ -41,6 +41,7 @@
       font-size: 3.2rem;
       font-weight: 300;
       letter-spacing: 2px;
+      color: #ffffff !important;
     }
 
     .date {
@@ -48,6 +49,7 @@
       font-weight: 500;
       margin-top: 10px;
       letter-spacing: 1px;
+      color: #ffffff !important;
     }
   </style>
 </head>
@@ -58,35 +60,19 @@
   </div>
 
   <script>
-    const timeEl = document.getElementById('time');
-    const dateEl = document.getElementById('date');
-
-    function applyColors() {
-      const isDark = true;  // ← ここを true に変更！
-
-      if (isDark) {
-        timeEl.style.color = '#ffffff';
-        dateEl.style.color = '#ffffff';
-      } else {
-        timeEl.style.color = '#333333';
-        dateEl.style.color = '#555555';
-      }
-    }
-
     function updateClock() {
       const now = new Date();
 
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
 
-      timeEl.textContent = hours + ':' + minutes;
+      document.getElementById('time').textContent = hours + ':' + minutes;
 
       const options = { month: 'short', day: 'numeric', weekday: 'short' };
       const dateStr = now.toLocaleDateString('ja-JP', options);
-      dateEl.textContent = dateStr;
+      document.getElementById('date').textContent = dateStr;
     }
 
-    applyColors();
     updateClock();
     setInterval(updateClock, 1000);
   </script>
